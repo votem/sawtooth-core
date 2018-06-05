@@ -189,7 +189,7 @@ impl TransactionContext {
     /// # Arguments
     ///
     /// * `addresses` - the addresses to fetch
-    pub fn get_state(&mut self, address: &str) -> Result<Option<Vec<u8>>, ContextError> {
+    pub fn get_state(&self, address: &str) -> Result<Option<Vec<u8>>, ContextError> {
         let mut request = TpStateGetRequest::new();
         request.set_context_id(self.context_id.clone());
         request.set_addresses(RepeatedField::from_vec(vec![String::from(address)]));
